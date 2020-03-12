@@ -1,0 +1,5 @@
+
+
+export const ORDER_DATA = 'ORDER_DATA'
+
+export const CHANGE_LOADING_STATUS = 'CHANGE_LOADING_STATUS'

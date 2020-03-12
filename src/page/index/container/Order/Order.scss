@@ -1,0 +1,14 @@
+.order-container {
+    padding-bottom: px2rem(50);
+    .header {
+        width: 100%;
+        height: px2rem(64);
+        background-color: #fff;
+        border-bottom: 1px solid #b2b2b2;
+        font-size: px2rem(17);
+        color: #333;
+        text-align: center;
+        line-height: px2rem(64);
+        font-weight: bold;
+    }
+}

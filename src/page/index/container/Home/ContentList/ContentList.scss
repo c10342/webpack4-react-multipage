@@ -1,0 +1,20 @@
+.list-content {
+    overflow: hidden;
+    padding-bottom: px2rem(50);
+    .list-title {
+        text-align: center;
+        font-size:px2rem(16);
+        margin-top: px2rem(14);
+        margin-bottom: px2rem(5);
+    }
+    .title-line {
+        display: inline-block;
+        border-bottom: 1px solid #949494;
+        height: px2rem(1);
+        width: px2rem(30);
+        margin-left: px2rem(4);
+        margin-right: px2rem(4);
+        margin-bottom: px2rem(4);
+    }
+
+}

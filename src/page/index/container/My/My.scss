@@ -1,0 +1,103 @@
+.my {
+    .header {
+        width: 100%;
+        height: px2rem(160);
+
+        background-image: url('./img/header.png');
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    .avatar {
+        width: px2rem(72);
+        height: px2rem(72);
+        margin: 0 auto;
+        display: block;
+        margin-top: px2rem(25);
+        border: px2rem(3) solid rgba(255,255,255,0.4);
+        border-radius: 50%;
+    }
+    .nickname {
+        color: #333;
+        font-size: px2rem(16);
+        text-align: center;
+        margin-top: px2rem(15);
+    }
+    .content {
+        min-height: px2rem(507);
+        background-color: #eee;
+    }
+    .items {
+        border-bottom: px2rem(10) solid #eee;
+        background-color: #fff;
+        li {
+            height: px2rem(45);
+            font-size: px2rem(14);
+            line-height: px2rem(45);
+            position: relative;
+            padding-left: px2rem(26);
+            margin-left: px2rem(15);
+            border-bottom: 1px solid #e4e4e4;
+            &:last-child {
+                border: none;
+            }
+            &:before {
+                content: '';
+                display: block;
+                width: px2rem(16);
+                height: px2rem(16);
+                position: absolute;
+                top: 50%;
+                left: 1px;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                background-size: cover;
+            }
+            &:after {
+                content: '>';
+                display: block;
+                width: px2rem(16);
+                height: px2rem(16);
+                position: absolute;
+                top: 0;
+                right: px2rem(9);
+                color: #aaa;
+            }
+        }
+        .address {
+            &:before {
+                background-image: url('./img/address.png');
+            }
+        }
+        .money {
+            &:before {
+                background-image: url('./img/money.png');
+            }
+        }
+        .email {
+            &:before {
+                background-image: url('./img/email.png');
+            }
+        }
+        .question {
+            &:before {
+                background-image: url('./img/question.png');
+            }
+        }
+    }
+    .tel {
+        font-size: px2rem(15);
+        color: #ffb000;
+        text-align: center;
+        height: px2rem(46);
+        line-height: px2rem(46);
+        background-color: #fff;
+    }
+    .time {
+        font-size: px2rem(14);
+        text-align: center;
+        margin-top: px2rem(13);
+        color: #999;
+    }
+
+}
