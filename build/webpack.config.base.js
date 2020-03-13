@@ -70,11 +70,38 @@ const baseConfig = {
             }
         ]
     },
-    plugins:[
+    plugins: [
         new CopyPlugin([
-            { from: path.resolve(srcRoot,'./static'), to: path.resolve(outputPath,'./static'), force:true},
-          ])
+            { from: path.resolve(srcRoot, './static'), to: path.resolve(outputPath, './static'), force: true },
+        ])
     ]
+}
+
+
+function readFileContentToEnvObj(pathStr) {
+    let obj = {}
+    if (fs.existsSync(pathStr) && fs.statSync(pathStr).isFile()) {
+        const result = fs.readFileSync(pathStr).toString()
+        if (result) {
+            const envArr = result.split('\r\n')
+            if (envArr.length > 0) {
+                for (let i = 0; i < envArr.length; i++) {
+                    try {
+                        const envItem = envArr[i].split('=')
+                        if (envItem.length > 0) {
+                            const a = envItem[0].trim()
+                            const b = envItem[1].trim()
+                            if (a && b) {
+                                obj[a] = JSON.stringify(b)
+                            }
+                        }
+                    } catch (error) { }
+                }
+            }
+        }
+
+    }
+    return obj
 }
 
 
@@ -84,5 +111,6 @@ module.exports = {
     mainHtml,
     entry,
     srcRoot,
-    outputPath
+    outputPath,
+    readFileContentToEnvObj
 }

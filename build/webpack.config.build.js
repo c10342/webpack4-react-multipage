@@ -13,7 +13,9 @@ const webpack = require('webpack');
 
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
-const { baseConfig, pageDir, mainHtml, entry,srcRoot } = require('./webpack.config.base')
+const { baseConfig, pageDir, mainHtml, entry,srcRoot,readFileContentToEnvObj } = require('./webpack.config.base')
+
+const proVariablePath = path.resolve(__dirname,'../.pro')
 
 
 function getHtmlArray(entryMap) {
@@ -89,7 +91,8 @@ const proConfig = {
         }),
         new webpack.DefinePlugin({
             'process.env':{
-                mode:JSON.stringify('production')
+                mode:JSON.stringify('production'),
+                ...readFileContentToEnvObj(proVariablePath)
             }
         })
     ],

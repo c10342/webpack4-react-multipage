@@ -2,4 +2,4 @@ import '../../public/css/reset.css'
 import '../../public/css/common.css'
 import './demo.css'
 
-console.log(2)
+console.log(process.env.test)
