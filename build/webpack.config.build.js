@@ -13,9 +13,10 @@ const webpack = require('webpack');
 
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
-const { baseConfig, pageDir, mainHtml, entry,srcRoot,readFileContentToEnvObj } = require('./webpack.config.base')
+const baseConfig = require('./webpack.config.base')
 
-const proVariablePath = path.resolve(__dirname,'../.pro')
+const {pageDir,mainHtml,entry,srcRoot,proObj} = require('./config')
+
 
 
 function getHtmlArray(entryMap) {
@@ -87,12 +88,12 @@ const proConfig = {
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash].css',
-            chunkFilename: 'css/[name].[contenthash].chunk.css',
+            chunkFilename: 'css/[name].[contenthash].chunk.css'
         }),
         new webpack.DefinePlugin({
             'process.env':{
                 mode:JSON.stringify('production'),
-                ...readFileContentToEnvObj(proVariablePath)
+                ...proObj
             }
         })
     ],

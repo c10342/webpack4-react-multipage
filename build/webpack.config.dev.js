@@ -9,9 +9,9 @@ const webpack = require('webpack');
 
 const webpackMerge = require('webpack-merge')
 
-const {baseConfig,pageDir,mainHtml,entry,outputPath,srcRoot,readFileContentToEnvObj} = require('./webpack.config.base')
+const baseConfig = require('./webpack.config.base')
 
-const evnVariablePath = path.resolve(__dirname,'../.dev')
+const {pageDir,mainHtml,entry,outputPath,srcRoot,devObj} = require('./config')
 
 
 function getHtmlArray(entryMap) {
@@ -87,7 +87,7 @@ const devConfig = {
         new webpack.DefinePlugin({
             'process.env':{
                 mode:JSON.stringify('development'),
-                ...readFileContentToEnvObj(evnVariablePath)
+                ...devObj
             }
         }),
         new webpack.NamedModulesPlugin(),
