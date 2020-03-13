@@ -11,7 +11,7 @@ const webpackMerge = require('webpack-merge')
 
 const {baseConfig,pageDir,mainHtml,entry,outputPath,srcRoot,readFileContentToEnvObj} = require('./webpack.config.base')
 
-const evnVariablePath = path.resolve(__dirname,'../.env')
+const evnVariablePath = path.resolve(__dirname,'../.dev')
 
 
 function getHtmlArray(entryMap) {
