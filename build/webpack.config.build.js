@@ -9,6 +9,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const webpackMerge = require('webpack-merge')
 
+const webpack = require('webpack');
+
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 const { baseConfig, pageDir, mainHtml, entry,srcRoot } = require('./webpack.config.base')
@@ -85,6 +87,11 @@ const proConfig = {
             filename: 'css/[name].[contenthash].css',
             chunkFilename: 'css/[name].[contenthash].chunk.css',
         }),
+        new webpack.DefinePlugin({
+            'process.env':{
+                mode:JSON.stringify('production')
+            }
+        })
     ],
     optimization: {
         // 使package.json中sideEffects的文件不会被Tree Shaking掉
